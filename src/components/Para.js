@@ -5,13 +5,7 @@ const Para = () => {
     const { isAuthenticated } = useContext(AuthContext);
 
     return (
-        <div>
-            {isAuthenticated ? (
-                <p>You are authenticated. You can now proceed.</p>
-            ) : (
-                <p>You are not authenticated.</p>
-            )}
-        </div>
+        <p className="authText">{isAuthenticated ? 'You are now authenticated, you can proceed' : 'you are not authenticated'}</p>
     );
 };
 

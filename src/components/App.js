@@ -1,13 +1,26 @@
-
-import React from "react";
+import React, { useState } from "react";
+import AuthContext from "./AuthContext";
+import Heading from "./Heading";
+import Para from "./Para";
+import Checkbox from "./Checkbox";
 import './../styles/App.css';
 
 const App = () => {
-  return (
-    <div>
-        {/* Do not remove the main div */}
-    </div>
-  )
-}
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-export default App
+  const toggleAuth = () => {
+    setIsAuthenticated(prevState => !prevState);
+  };
+  
+  return (
+    <AuthContext.Provider value={{ isAuthenticated, toggleAuth }}>
+      <div className="app-container">
+        <Heading />
+        <Para />
+        <Checkbox />
+      </div>
+    </AuthContext.Provider>
+  );
+};
+
+export default App;
